@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:oauth="http://www.springframework.org/schema/security/oauth"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/security/oauth http://www.springframework.org/schema/security/spring-security-oauth-1.0.xsd">
+
+	<security:http pattern="/login.htm*" security="none"/>
+	<security:http pattern="/index.htm*" security="none"/>
+	<security:http pattern="/css/**" security="none"/>
+	<security:http pattern="/js/**" security="none"/>
+	<security:http pattern="/lib/**" security="none"/>
+	<security:http pattern="/img/**" security="none"/>
+	
+	
+	
+	<security:http entry-point-ref="entryPoint">
+		<security:intercept-url pattern="/api/*/appDirect/**" access="ROLE_OAUTH_APPDIRECT"/>
+		<security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN,ROLE_MANAGER" />
+		<security:anonymous enabled="false"/>
+	   
+	   <security:form-login login-page="/login.html" 
+			login-processing-url="/loginProcess" 
+			default-target-url="/home.html" 
+			authentication-success-handler-ref="authenticationSuccessHandler"
+			authentication-failure-url="/login.html?login_error=1" 
+			always-use-default-target="true"/>
+		<security:logout logout-url="/logout" logout-success-url="/login.html" />
+	   
+	   
+	   <security:openid-login
+                login-processing-url="/login-openid"
+                default-target-url="/home.html"
+                authentication-success-handler-ref="authenticationSuccessHandler"
+                authentication-failure-url="/login.html?login_error=1" 
+                always-use-default-target="true"/>
+
+
+	</security:http>
+	
+	
+    <bean id="entryPoint"
+          class="org.springframework.security.web.authentication.DelegatingAuthenticationEntryPoint">
+        <constructor-arg>
+            <map>
+                <entry key-ref="appDirectEntryPointMatcher" value-ref="oauthProcessingFilterEntryPoint"/>
+            </map>
+        </constructor-arg>
+
+        <property name="defaultEntryPoint" ref="webAppEntryPoint"/>
+    </bean>
+    
+        <bean id="appDirectEntryPointMatcher"
+          class="org.springframework.security.web.util.matcher.AntPathRequestMatcher">
+        <constructor-arg value="/api/*/appDirect/**"/>
+    </bean>
+    
+    
+    <bean id="webAppEntryPoint"
+          class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint"/>
+	
+	<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" /> 
+	
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider user-service-ref="userService">
+			<security:password-encoder ref="passwordEncoder">
+            </security:password-encoder>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<oauth:provider
+		consumer-details-service-ref="userService"
+		token-services-ref="tokenServices"
+		nonce-services-ref="nonceServices"
+		require10a="true"/>
+	
+	
+    <bean id="oauthProcessingFilterEntryPoint" class="org.springframework.security.oauth.provider.OAuthProcessingFilterEntryPoint"/>
+    <bean id="nonceServices" class="org.springframework.security.oauth.provider.nonce.InMemoryNonceServices" />	
+	
+	
+    <oauth:token-services id="tokenServices"/>
+	
+	<bean id="authenticationSuccessHandler" class="com.bigeye.mycust.web.authentication.AuthenticationSuccessHandler" >
+		<property name="alwaysUseDefaultTargetUrl" value="true"/>
+		<property name="defaultTargetUrl" value="/home.html"/>
+	</bean>
+     
+    <oauth:resource-details-service id="resourceDetailService">
+        <oauth:resource
+                id="appDirectResource"
+                key="${oAuthConsumerKey}"
+                secret="${oAuthConsumerSecret}"
+                request-token-url="requestToken"
+                user-authorization-url="authorizationToken"
+                access-token-url="accessToken">
+        </oauth:resource>
+    </oauth:resource-details-service>
+    
+    
+    <bean id="eventDataService" class="com.bigeye.mycust.appdirect.service.impl.EventDataServiceImpl">
+		<property name="restTemplate">
+			<bean class="org.springframework.security.oauth.consumer.client.OAuthRestTemplate">
+				<constructor-arg ref="appDirectResource"/>
+			</bean>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Default Main Template -->
+	<definition name=".mainTemplate" template="/WEB-INF/templates/main.jsp">
+		<put-attribute name="bodyClass" value="menu-on-top" />
+		<put-attribute name="menu" value="/WEB-INF/templates/menu.jsp" />
+		<put-attribute name="header" value="/WEB-INF/templates/header.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<definition name=".home" extends=".mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/home/content.jsp" />
+	</definition>
+
+	<definition name=".login" extends=".mainTemplate" >
+		<put-attribute name="bodyClass" value="loginPage" />
+		<put-attribute name="menu" value="" />
+     	<put-attribute name="content" value="/WEB-INF/jsp/login/content.jsp" />
+	</definition>
+	
+	<definition name=".usersList" extends=".mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/users/list.jsp" />
+	</definition>
+	
+	<definition name=".companiesList" extends=".mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/company/list.jsp" />
+	</definition>
+
+</tiles-definitions>

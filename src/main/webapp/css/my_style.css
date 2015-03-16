@@ -1,0 +1,506 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+ 
+/* ********************* HEADER ********************* */
+
+#header>:first-child, aside { width: 300px; }
+#header {
+	background: none;
+	height:1px;
+	}
+	
+#header>div {
+	padding-top: 9px;
+	}
+
+.header-search>input[type=text] { 
+	min-width:174px; 
+	padding:0 5px 0 10px;
+	border: 1px solid #8996A0;
+	}
+	
+
+@media screen and (max-width: 1200px) {
+.header-search>input[type=text] {
+	display: none;
+	}
+}
+
+@media screen and (max-width: 1020px) {
+.menu-on-top #hide-menu {
+     display: block!important;
+	}
+.menu-on-top #left-panel {
+	left: 0;
+	display: none;
+}
+}
+
+#mobile-profile-img a.userdropdown img { 
+	width: auto; 
+	margin-top: 3px;
+	margin-left: 10px;
+	border: none!important;
+	}
+ 
+/* *********************  NAV  ********************** */
+
+aside { background: #ffffff; } 
+
+#left-panel { padding-top:0; } 
+
+.menu-on-top aside#left-panel nav>ul { 
+	background: url(../img/mycust/corner.jpg) no-repeat 902px -1px #8996A0;
+	height:68px;
+	width:930px;
+	} 
+
+.menu-on-top aside#left-panel { 
+	border-bottom: none;
+	border-top: none;
+	box-shadow:none;
+	} 
+
+.menu-on-top aside#left-panel nav>ul>li { 
+	border-right: 1px solid #9EAAB1;
+	border-left: 0px;
+	}
+
+.menu-on-top nav ul ul, .menu-on-top nav ul ul ul { border-bottom: 1px solid #9EAAB1; }
+
+.menu-on-top aside#left-panel nav>ul>li:hover { background:#8996A0; }
+.menu-on-top aside#left-panel nav>ul>li:hover>a { background:#FFFFFF; }
+
+ .menu-on-top aside#left-panel nav>ul>li.active { 
+	background:#ffffff;
+	}
+.menu-on-top aside#left-panel nav>ul>li.active>a { 
+	color:#8996A0 !important ;
+	}
+
+
+.menu-on-top aside#left-panel nav ul li a  { 
+	color:#ffffff;
+	font-family:Arial, Gotham, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight:bold;
+	line-height:normal;
+	padding:18px 9px 10px 9px!important;
+ 	}
+
+.menu-on-top aside#left-panel nav ul li a:hover{ 
+	color:#798792 !important ;
+	background:#ffffff;
+ 	}
+	
+.menu-on-top nav>ul>li>a:after{
+	content: "\f0dd"!important;
+	top: 73%!important;
+	color:#CED4D8 !important;
+	}
+
+.menu-on-top aside#left-panel nav ul ul li a, .menu-on-top aside#left-panel nav ul ul li a {
+	color:#798792;
+	padding:10px 9px 10px 9px!important;
+	}
+.menu-on-top aside#left-panel nav ul ul li a:hover, .menu-on-top aside#left-panel nav ul ul li a:hover {
+	background:#9EAAB1; 
+	color:#ffffff !important;
+	}
+
+.menu-on-top aside#left-panel nav ul li a:active { 
+	background:#ffffff!important;
+ 	}
+.menu-on-top aside#left-panel nav ul ul li a:active, .menu-on-top aside#left-panel nav ul ul li a:active {
+	background:#8996A0!important; 
+	}
+
+.menu-on-top .menu-item-parent { max-width: 100px; white-space: normal; }
+
+#logo { margin-top:16px; height:52px; }	
+
+#logo img { width:auto; }
+
+#ribbon { display:none; }
+
+.dropdown-menu{
+	padding:0;
+	}
+.dropdown-menu .divider{
+	margin:0;
+}
+.dropdown-menu>li>a{ 
+	padding: 10px 10px !important;
+	min-height:30px;
+	}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover { 
+	background:#2c699d!important; 
+	}
+
+.dropdown-menu>li>a.inactive{
+	color:#dddddd;
+	cursor:default;
+}
+.dropdown-menu>li>a.inactive:hover{
+	color:#dddddd;
+	background:#ffffff!important; 
+}
+
+
+/* *******************  START CONTENT  ******************** */
+
+/*#main{ background: orange;}*/
+
+body { background:#ffffff; }
+html { background:none; }
+
+.bginone{ background-image:none !important; }
+
+
+/* *******************  LOGIN PAGE  ******************** */
+
+
+body.loginPage { background:#8996A0; }
+.loginPage header .pull-right, .loginPage header .pull-right #search-mobile { display:none; }
+
+.loginPage .row {
+	position:absolute;
+	width:100%;	
+}
+
+.loginPage .well{
+	border-radius: 0 25px 25px 0;
+	background:#ffffff;
+	border: 20px solid #ffffff;
+	position:relative;
+	top:115px;
+	left:-20px;
+	}
+
+.loginPage .well span.logo{
+	width:100%;
+	background:#8996A0;
+	display:block;
+	border-radius: 0 12px 0 0;
+	}
+.loginPage .well span.logo img{
+	width: auto;
+	padding: 30px 30px 15px 39px;
+	}
+	
+ .loginPage .well .smart-form header, .loginPage .well .smart-form fieldset, .loginPage .well .smart-form footer { background:#DCE5E4 }
+ 
+ .loginPage .well .smart-form header { 
+ 	padding:10px 30px 5px 45px;
+ 	color:#8996A0;
+ 	font-weight:bold;
+ 	font-size: x-large;
+ 	}
+ .loginPage .well .smart-form fieldset{ 
+ 	padding:15px 30px 15px 45px;
+ 	}
+ .loginPage .well .smart-form footer { 
+ 	border-radius: 0 0 12px 0;
+ 	padding:5px 30px 0 15px;
+ 	background:#ffffff;
+ 	}
+ 	
+  .loginPage .alert { 
+  	margin: 12px 0 0 15px;
+ 	}
+ .loginPage .alert p { 
+  	display: inline;
+ 	}
+
+
+/* *******************  CONTENT INPUT CHOICE   ******************** */
+
+.well {
+	background: #dce5e4;
+	padding: 14px 10px 0px 10px;
+	border: none;
+	}
+	
+.well h3 {
+	margin: 0;
+	}
+	
+select#meubleSelect, select#stringSelect  {
+	border: 1px solid #dce5e4;
+	height:30px;
+	padding: 0 10px;
+	}
+
+/* *******************  CONTENT BUTTONS  ******************** */
+
+.btn-primary {
+	background-color: #19365D;
+	border-color: #2c699d;
+	}	
+.btn-primary:focus, .btn-primary:hover{
+	background-color: #3276b1;
+	border-color: #2c699d;
+	}
+	
+a {
+	color: #19365d;
+	}
+a:focus, a:hover {
+	color: #0080ff;
+	}
+
+.pagination>li {
+display: inline-block;
+}
+
+.pagination>li>a {
+	box-shadow:none;
+	height:27px;
+}
+.pagination>li>a:hover {
+	color: #ffffff;
+	background: #2c699d;
+}
+.pagination>.active>a {
+	color: #ffffff;
+	background: #8996A0;
+	border:#8996A0;
+	}
+.pagination>.active>a:hover {
+	background: #8996A0;
+	}
+
+.pagination .ui-button{
+	padding:0;
+	margin:0!important;
+	border:none!important;
+	}
+	
+	
+/* *************************   MODAL  *************************** */
+
+.modal-backdrop {
+	height: 100%; 
+	}
+	
+.ui-dialog {
+	top:100px;
+	margin: 0 auto;
+	display:block;
+	position:relative;
+	}
+	
+
+.ui-dialog .ui-dialog-titlebar {
+	padding: 15px 10px;
+	}
+
+.ui-dialog .ui-dialog-titlebar .ui-dialog-title h4 .fa {
+	padding-right: 10px;
+	}
+	
+	
+.ui-dialog .ui-dialog-buttonpane {
+	margin-top: 0;
+	padding-bottom: 10px;	
+	}
+	
+
+/* *******************  CONTENT TABLE ASSOC  ******************** */
+
+.jarviswidget-color-blueDark>header, .jarviswidget-color-blue>header {
+	background:#8996A0;
+	border: 1px solid #8996A0;
+	border-color:#8996A0!important;
+	}
+
+.jarviswidget>div{
+	border-right-color: #8996A0!important;
+	border-bottom-color: 1px solid #8996A0!important;
+	border-left-color: #8996A0!important;
+	padding-bottom: 8px;
+	}
+		
+.widget-body.no-padding {
+	margin: 0px -6px;
+	}
+
+.widget-body .bcontrol {
+	padding: 0 20px 10px 0;
+	}
+	
+.dataTables_filter {
+	width:50%;
+	}
+
+.dataTables_filter input {
+	height: 30px;
+	padding: 0 5px 0 5px;
+	border: 1px solid #8996A0;
+	/*margin-left:10px;*/
+	}
+
+.dataTables_filter .input-group-addon{
+	height: 30px;
+	width: 36px;
+	border:#8996A0;
+	background:#8996A0;
+	color:#ffffff;
+	display:none;
+	}
+	.dataTables_filter .input-group-addon:hover{
+	background:#2C699D;
+	border:#2C699D;
+	}
+	
+table#datatable_fixed_column thead th {
+	font-weight:bold;
+	color:#555555;
+	}
+	
+table.dataTable thead th {
+	background:url(data:image/png;) no-repeat center right;
+	}
+
+table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc {
+	background-color: #E8EEED;
+	}
+.table-striped>tbody>tr:nth-child(odd) {
+	background-color: #F1F5F4;
+	}	
+	
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{ 
+	border: 1px solid #E8EEED;
+	}
+
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>td {
+	border-color: #ffffff;
+	}
+
+	
+div.dataTables_length select {
+	height: 27px;
+	width: 60px;
+	}
+	
+div.DataTables_sort_wrapper span{
+	display:none;
+	}
+	
+.table>thead>tr>th{
+	vertical-align:middle; 
+	}
+	
+.ui-toolbar{
+	margin: 0;
+	padding-top:15px;
+	padding-bottom:0;
+	background-image:none;
+	background:none;
+	border:none;
+	border-top:1px solid #E8EEED;
+	border-radius:0;
+	}
+	
+.ui-toolbar label{
+	margin-bottom:0;
+	}
+
+/* *******************  CONTENT TABLE METHODE  ******************** */
+
+#piecesTree{
+	margin:10px 0 5px -5px;
+	}
+
+.tree li.parent_li>span:hover {
+	background-color: #8996A0;
+	border: 1px solid #8996A0;
+	}
+.tree li.parent_li>span {
+	background-color: #DCE5E4;
+	border: 1px solid #8996A0;
+	min-width:50%;
+	}
+
+.tree li.parent_li>span a span{
+	border:none;
+	float:right;
+	}
+
+	
+.tree li.parent_li>span:hover+ul li span {
+	background: #DCE5E4!important;
+	border: 1px solid #8996A0;
+	color: #000;
+	}
+
+.tree li.parent_li>span:hover+ul li>span a span {
+	border: none;
+	}	
+
+.tree li.parent_li>span:hover+ul li::before {
+	border-left-color: #8996A0;
+	}
+.tree li.parent_li>span:hover+ul li::after {
+	border-top-color: #8996A0;
+	}
+.tree li>span input{
+	margin-right: 5px;
+	}
+.tree li>span.checked{
+	background-color: #8996A0;
+	color:#ffffff;
+	}	
+.tree li.parent_li>span i {
+	padding: 0;
+	vertical-align: baseline;
+	}
+.tree li.parent_li>span i.fa {
+	padding-right: 5px;
+	}
+
+.tree li span {
+	border-radius:2px;
+	}
+	
+.tree li.parent_li>.cahierExist{
+	background: #a69f88 !important;
+		color: #ffffff;
+	}
+.tree li.parent_li>.cahierExist+ul li span.cahierExist{
+	background: #a69f88 !important;
+		color: #ffffff;
+	}	
+.tree li.parent_li>span:hover+ul li span.cahierExist{
+	background: #a69f88 !important;
+		color: #ffffff;
+	}
+
+/*.tree li.parent_li>span:hover.cahierExist{
+	background: #a69f88 !important;
+		color: #ffffff;
+	}*/
+/* *******************  SELECT2  ******************** */
+.select2-hidden-accessible {
+	display: none;
+}
+
+

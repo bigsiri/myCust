@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
+    
+    <persistence-unit name="mycust-entities" transaction-type="RESOURCE_LOCAL">
+	    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<class>com.bigeye.mycust.model.user.User</class>
+		<class>com.bigeye.mycust.model.user.Authoritie</class>
+		<class>com.bigeye.mycust.model.Company</class>
+		<class>com.bigeye.mycust.model.Account</class>
+		<class>com.bigeye.mycust.model.Configuration</class>
+		<class>com.bigeye.mycust.model.Order</class>
+		<class>com.bigeye.mycust.model.Item</class>
+		<class>com.bigeye.mycust.model.Entry</class>
+		
+    	<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+	    <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.use_sql_comments" value="false"/>
+            <property name="hibernate.query.substitutions" value="true 1, false 0"/>	 
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+    	</properties>
+	</persistence-unit>
+    
+</persistence>
