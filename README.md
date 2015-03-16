@@ -25,7 +25,7 @@ Under src/main/resources folder :
 Installation
 ------------
 
-maven clean install
+maven clean package
 
 AppDirect Configuration
 -----------------------
